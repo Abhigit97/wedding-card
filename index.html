@@ -52,12 +52,13 @@
         .hero {
             position: relative;
             min-height: 100vh;
+            min-height: 100dvh;
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 80px 20px;
+            padding: 40px 20px 80px;
             background-color: var(--bg-cream);
             overflow: hidden;
         }
@@ -113,6 +114,35 @@
             margin: 0 auto 10px;
             opacity: 0;
             animation: fadeInDown 1s forwards;
+            position: relative;
+            z-index: 15;
+        }
+
+        @media (max-width: 768px) {
+            .ganesha-icon {
+                margin: -35px auto 10px; /* Overlay on toran */
+            }
+        }
+
+        /* Compact view for small mobile screen heights */
+        @media (max-height: 700px) and (max-width: 768px) {
+            .hero {
+                padding: 30px 20px 60px;
+            }
+            .hero-name-large {
+                font-size: 2.2rem;
+            }
+            .hero-date {
+                font-size: 1.2rem;
+                margin-top: 10px;
+            }
+            .ganesha-icon {
+                width: 60px;
+            }
+            .hero-muhurtham {
+                font-size: 0.75rem;
+                letter-spacing: 0.1em;
+            }
         }
 
         .shlok {
@@ -204,6 +234,7 @@
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--primary-gold);
+            white-space: nowrap;
         }
 
         .hero-date {
@@ -268,6 +299,7 @@
             font-size: 1.2rem;
             margin-bottom: 15px;
             color: #777;
+            white-space: nowrap;
         }
 
         /* --- Countdown --- */
@@ -587,7 +619,7 @@
             document.getElementById('details').scrollIntoView({ behavior: 'smooth' });
         }
 
-        const weddingDate = new Date("May 03, 2026 22:00:00").getTime();
+        const weddingDate = new Date("May 03, 2026 10:30:00").getTime();
 
         setInterval(() => {
             const now = new Date().getTime();
